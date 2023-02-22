@@ -8,6 +8,7 @@ fn movies () -> Result<Vec<Movie> , serde_json::Error> {
     let movies: Result<Vec<Movie> , serde_json::Error> = serde_json::from_str(&data);
     movies
 } 
+
 fn write_movies (movies: Vec<Movie>)  {
     let data = serde_json::to_string(&movies).expect("Error reading");
     fs::write(Movies_DB , data).expect("Failed to write the data");

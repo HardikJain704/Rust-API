@@ -5,13 +5,14 @@ extern crate rocket;
 
 use rocket_contrib::json::Json;
 use rocket::http::RawStr;
-
 use lib::db;
 use lib::model::Movie;
 
 fn main(){
-    rocket().launch();
+    rocket()
+    .launch();
 }
+
 #[get("/")]
 fn get_movies() -> Json<Option<Vec<Movie>>> {
     Json(db::read_movies())
